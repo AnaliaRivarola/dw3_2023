@@ -4,7 +4,7 @@
  */
 package Estudiantes;
 
-import java.util.Scanner;
+
 
 /**
  *
@@ -15,32 +15,41 @@ public class NewMain1 {
     /**
      * @param args the command line arguments
      */
+    
+    
     public static void main(String[] args) {
         // TODO code application logic here
         //public void mostrarDetalles(){
-            RegistrioEstudiantes a1 = new RegistrioEstudiantes();
-            EstudianteInternacional i = new EstudianteInternacional();
-            Scanner lector = new Scanner(System.in);
-            System.out.println("Introduzca 0 para empezar");
-            int opcion = lector.nextInt();
-            while(opcion!=4)
-            {
-                a1.mostrar();
-                opcion = lector.nextInt();
-                switch (opcion) { 
-                case 1 -> {
-                   
-                    a1.agregar();
-                    i.EstudianteInt();
-                    }
-               case 2 -> a1.eliminar();
-                    
-               case 3 -> // secuencia de sentencias.
-                    a1.buscar();
-             }
-            
-            }
-            
+        
+        
+        Estudiantes es1 = new Estudiantes("Analia","Rivarola",20,4);
+        Estudiantes es2 = new Estudiantes("Juan","Lopez",21,3);
+        Estudiantes es3 = new Estudiantes("Maira","Suarez",18,5);
+        Estudiantes es4 = new Estudiantes("Mateo","Barrios",22,2);
+        Estudiantes inte = new EstudianteInternacional("Kairo","Mainz",22,5,"Estados Unidos");
+        RegistrioEstudiantes a = new RegistrioEstudiantes();
+        EstudianteInternacional i = new EstudianteInternacional();
+        a.agregar(es1);
+        a.agregar(es2);
+        a.agregar(es3);
+        a.agregar(es4);
+        a.agregar(inte);
+        
+        
+        a.mostrarTodo();
+        
+        i.EstudianteInte(inte,"Kairo");
+           
+        a.buscar("Maira");
+        
+           
+        a.mostrarTodo();
+        
+           
+        a.eliminar("Mateo");
+        
+           
+        a.mostrarTodo();
     }
     
 }

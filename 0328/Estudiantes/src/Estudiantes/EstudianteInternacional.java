@@ -1,7 +1,9 @@
 //
 package Estudiantes;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+
+
 
 /**
  *
@@ -9,8 +11,8 @@ import java.util.Scanner;
  */
 public  class  EstudianteInternacional extends Estudiantes
 {
-    private  String p_origen;
-    Scanner lector = new Scanner(System.in);
+    private  String p_origen = "Estados Unidos";
+    ArrayList<EstudianteInternacional> estudiantes = new ArrayList<>();
     public EstudianteInternacional() {
     }
 
@@ -18,13 +20,24 @@ public  class  EstudianteInternacional extends Estudiantes
         super(nombre, apellido, edad, nota_promedio);
         this.p_origen = p_origen;
     }
-    
-    
-    
-    public void EstudianteInt(){
-        System.out.println("Ingrese su nacionalidad");
-        p_origen = lector.next();
-        System.out.println("Nacionalidad"+p_origen);
+
+
+
+    public void setP_origen(String p_origen) {
+        this.p_origen = p_origen;
     }
     
+    
+  public void EstudianteInte(Estudiantes inte, String x)
+  {
+      if (inte instanceof EstudianteInternacional) 
+        {
+            System.out.println(x+" Es un estudiante internacional");
+            
+        } else if (inte instanceof Estudiantes) {
+            System.out.println("Es un Estudiante Paraguayo");
+        }
+  }
+  
+          
 }

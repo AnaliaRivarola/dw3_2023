@@ -3,8 +3,7 @@ package Estudiantes;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Scanner;
-
+import Estudiantes.EstudianteInternacional;
 /**
  *
  * @author anali
@@ -20,13 +19,10 @@ public class RegistrioEstudiantes extends Estudiantes{
     }
     
     Estudiantes a = new Estudiantes();
-    Scanner lector = new Scanner(System.in);
     ArrayList<Estudiantes> Estudiantes = new ArrayList();
     
     public String estudiantes[];
     
-    @Override
-        public void mostrarDetalles(){}
        
     public void mostrar()
     {
@@ -37,54 +33,46 @@ public class RegistrioEstudiantes extends Estudiantes{
             System.out.println("4. Salir\n");
             
     }
-    public void eliminar()
+    public void eliminar(String nombre2)
     {
-        System.out.println("Introduce el nombre del estudiante que desea eliminar");
-        String nombre2 = lector.next();
         Iterator<Estudiantes> it = Estudiantes.iterator();
         while(it.hasNext()){
             Estudiantes a = it.next();
             if(a.getNombre().equals(nombre2))
             {
                 it.remove();
+                System.out.println(nombre2+" eliminado exitosamente");
             }
         }
     }   
-     public void agregar()
+     public void agregar(Estudiantes x)
     {
         
-        System.out.println("Ingrese un nombre");
-        nombre = lector.next();
-        System.out.println("Ingrese un apellido");
-        apellido = lector.next();
-        System.out.println("Ingrese una edad");
-        edad = lector.nextInt();
-            a.setNombre(nombre);
-            a.setApellido(apellido);
-            a.setEdad(edad);
-            a.setNota_promedio(nota_promedio);
-            Estudiantes.add(a);
+        Estudiantes.add(x);
        
     }   
-      public void buscar()
+      public void buscar(String nombre2)
     {
-        if(Estudiantes == null || Estudiantes.isEmpty())
-        {
-            System.out.println("-------------------------------\n");
-            System.out.println("Lista Vacia\n");
-            System.out.println("-------------------------------\n");
-        }else
-        {
-            for(Estudiantes a: Estudiantes)
+        for (Estudiantes Estudiantes : Estudiantes) {
+            if(Estudiantes.getNombre().equals(nombre2))
             {
-            System.out.println("-------------------------------\n");
-            System.out.println("Nombre: "+a.getNombre()+" Apellido: "+a.getApellido()+ " Edad: "+a.getEdad());
-            System.out.println("-------------------------------\n");
+                System.out.println("-------------------------------");
+                System.out.println("Nombre: "+Estudiantes.getNombre()+" Apellido: "+Estudiantes.getApellido()+ " Edad: "+Estudiantes.getEdad()+ " Nota Promedio:"+Estudiantes.getNota_promedio());
+                System.out.println("-------------------------------");
             }
         }
         
     }
       
+        public void mostrarTodo (){
+        System.out.println("\nMostrando todos los Estudiantes:");
+        for (Estudiantes Estudiantes : Estudiantes) {
+             System.out.println("Nombre: "+Estudiantes.getNombre()+" Apellido: "+Estudiantes.getApellido()+ " Edad: "+Estudiantes.getEdad()+ " Nota Promedio:"+Estudiantes.getNota_promedio());
+        }
+        System.out.println();
+    }
+
+ 
   
       
 }
